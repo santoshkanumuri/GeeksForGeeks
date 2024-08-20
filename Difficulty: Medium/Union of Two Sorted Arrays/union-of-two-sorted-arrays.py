@@ -17,34 +17,27 @@ class Solution:
         temp=[]
         t=0
         while(i<n and j<m):
-            if(arr1[i]<=arr2[j] and i<n):
-                if(t!=0 and temp[-1]==arr1[i]):
-                    i+=1
-                    t+=1
-                else:
+            if(arr1[i]<=arr2[j]):
+                if(t==0 or temp[-1]!=arr1[i]):
                     temp.append(arr1[i])
-                    i+=1
-                    t+=1
-            if(j<m and i<n and arr1[i]>arr2[j]):
-                if(t!=0 and temp[-1]==arr2[j]):
-                    j+=1
-                    t+=1
-                else:
+                i+=1
+                t+=1
+            else:
+                if(t==0 or temp[-1]!=arr2[j]):
                     temp.append(arr2[j])
-                    j+=1
-                    t+=1
+                j+=1
+                t+=1
+                
         while(i<n):
             if(temp[-1]!=arr1[i]):
                 temp.append(arr1[i])
-                i+=1
-            else:
-                i+=1
+            i+=1
+                
         while(j<m):
             if(temp[-1]!=arr2[j]):
                 temp.append(arr2[j])
-                j+=1
-            else:
-                j+=1
+            j+=1
+            
         return temp
                 
 
